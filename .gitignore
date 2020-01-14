@@ -4,3 +4,4 @@ node-debug.log
 npm-debug*
 **/mocha-report.json
 .ijwb/
+.commit

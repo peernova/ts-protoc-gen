@@ -12,8 +12,12 @@
     "test": "run-s test:unit test:integration",
     "test:unit": "node test/mocha-run-suite.js \"test/unit/**/*.ts\"",
     "test:integration": "node test/mocha-run-suite.js \"test/integration/**/*.ts\"",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "preBinaryGen": "sh ./binaries/commit_scripts/pre-commit.sh",
+    "postBinaryGen": "sh ./binaries/commit_scripts/post-commit.sh"
   },
+  "pre-commit": ["preBinaryGen"],
+  "post-commit": ["postBinaryGen"],
   "bin": {
     "protoc-gen-ts": "bin/protoc-gen-ts"
   },
@@ -51,6 +55,9 @@
     "mocha": "^5.2.0",
     "mocha-spec-json-output-reporter": "^1.1.6",
     "npm-run-all": "^4.1.5",
+    "pkg": "^4.4.2",
+    "post-commit": "0.0.1",
+    "pre-commit": "^1.2.2",
     "rimraf": "^2.6.3",
     "source-map-support": "^0.4.18",
     "ts-node": "^8.3.0",
